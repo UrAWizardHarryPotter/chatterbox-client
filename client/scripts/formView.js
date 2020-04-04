@@ -9,8 +9,14 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    
-    console.log('click!');
+    var message = {};
+    message.username =  App.username;
+    message.text =  FormView.$form.children('input#message').val();
+
+    Parse.create(message);
+
+
+    // console.log('click!');
   },
 
   setStatus: function(active) {
@@ -19,3 +25,8 @@ var FormView = {
   }
 
 };
+
+/*{ <form action="#" id="send" method="post">
+<input type="text" name="message" id="message"/>
+<input type="submit" name="submit" class="submit"/>
+</form> }*/

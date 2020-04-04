@@ -7,8 +7,9 @@ var MessagesView = {
   },
 
   render: function() {
-    debugger;
     for(var i = 0; i < Messages.messages.length; i++) {
+      var message = Messages.getMessage(i)
+      if(message.username === undefined || message.text === undefined) continue;
       $('#chats').prepend(MessageView.render(Messages.getMessage(i)));
     }
   }

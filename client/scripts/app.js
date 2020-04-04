@@ -12,7 +12,7 @@ var App = {
     App.startSpinner();
     Parse.readAll((data) => {
       // examine the response from the server request:
-      for (var i = 0; i < data.results.length; i++) {
+      for (var i = data.results.length - 1; i >= 0; i--) {
         Messages.addMessage(data.results[i]);
       }
 
