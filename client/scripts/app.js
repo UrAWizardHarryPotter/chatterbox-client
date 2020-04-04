@@ -21,7 +21,6 @@ var App = {
       return Messages.messages;
     });
 
-
     FormView.initialize();
     RoomsView.initialize();
 

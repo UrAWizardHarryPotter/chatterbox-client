@@ -14,9 +14,6 @@ var FormView = {
     message.text =  FormView.$form.children('input#message').val();
 
     Parse.create(message);
-
-
-    // console.log('click!');
   },
 
   setStatus: function(active) {
@@ -25,8 +22,3 @@ var FormView = {
   }
 
 };
-
-/*{ <form action="#" id="send" method="post">
-<input type="text" name="message" id="message"/>
-<input type="submit" name="submit" class="submit"/>
-</form> }*/
