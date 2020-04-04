@@ -7,23 +7,24 @@ var App = {
   initialize: function() {
     App.username = window.location.search.substr(10);
 
-    FormView.initialize();
-    RoomsView.initialize();
-    MessagesView.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(App.stopSpinner);
-
-  },
-
-  fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
+      for (var i = 0; i < data.results.length; i++) {
+        Messages.addMessage(data.results[i]);
+      }
 
-      callback();
+      App.stopSpinner();
+      MessagesView.initialize();
+      return Messages.messages;
     });
+
+
+    FormView.initialize();
+    RoomsView.initialize();
+
   },
 
   startSpinner: function() {
